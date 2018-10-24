@@ -21,5 +21,9 @@
         <module>converter-jackson</module>
         <module>converter-java8</module>
         <module>converter-protobuff</module>
+        <module>converter-wire</module>
+        <module>converter-scalars</module>
+        <module>converter-moshi</module>
+        <module>converter-simplexml</module>
     </modules>
 </project>
