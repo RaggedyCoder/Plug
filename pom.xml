@@ -45,22 +45,27 @@
         <project.reporting.sourceEncoding>UTF-8</project.reporting.sourceEncoding>
 
         <!-- Compilation -->
-        <java.version>1.8</java.version>
+        <java.version>1.7</java.version>
+        <kotlin.version>1.2.60</kotlin.version>
 
         <!-- Dependencies -->
         <android.version>4.1.1.4</android.version>
-        <okhttp.version>3.8.1</okhttp.version>
+        <okhttp.version>3.11.0</okhttp.version>
         <animal.sniffer.version>1.14</animal.sniffer.version>
 
         <!-- Adapter Dependencies -->
         <rxjava.version>1.3.0</rxjava.version>
         <rxjava2.version>2.0.0</rxjava2.version>
-        <guava.version>19.0</guava.version>
 
         <!-- Converter Dependencies -->
-        <gson.version>2.8.0</gson.version>
+        <gson.version>2.8.2</gson.version>
+        <guava.version>19.0</guava.version>
+        <jackson.version>2.9.4</jackson.version>
         <protobuf.version>3.0.0</protobuf.version>
-        <jackson.version>2.8.11.1</jackson.version>
+        <wire.version>2.2.0</wire.version>
+        <moshi.version>1.5.0</moshi.version>
+        <scala.version>2.12.4</scala.version>
+        <simplexml.version>2.7.1</simplexml.version>
 
         <!-- Test Dependencies -->
         <junit.version>4.12</junit.version>
@@ -70,15 +75,15 @@
     </properties>
 
     <scm>
-        <url>http://github.com/raggedycoder/plug</url>
-        <connection>scm:git:git://github.com/raggedycoder/plug.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/raggedycoder/plug.git</developerConnection>
+        <url>https://github.com/RaggedyCoder/Plug</url>
+        <connection>scm:git:github.com/RaggedyCoder/Plug.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/RaggedyCoder/Plug.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
         <system>GitHub Issues</system>
-        <url>http://github.com/raggedycoder/plug/issues</url>
+        <url>http://github.com/raggedycoder/Plug/issues</url>
     </issueManagement>
 
     <licenses>
@@ -89,7 +94,7 @@
     </licenses>
 
     <organization>
-        <name>RaggedyCoder</name>
+        <name>Md. Sajid Shahriar</name>
         <url>http://raggedycoder.github.io</url>
     </organization>
 
@@ -100,6 +105,11 @@
                 <groupId>com.google.android</groupId>
                 <artifactId>android</artifactId>
                 <version>${android.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-stdlib</artifactId>
+                <version>${kotlin.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.codehaus.mojo</groupId>
@@ -133,6 +143,11 @@
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
 
             <!-- Converter Dependencies -->
             <dependency>
@@ -141,22 +156,38 @@
                 <version>${gson.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.google.protobuf</groupId>
                 <artifactId>protobuf-java</artifactId>
                 <version>${protobuf.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
+                <groupId>com.squareup.wire</groupId>
+                <artifactId>wire-runtime</artifactId>
+                <version>${wire.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.simpleframework</groupId>
+                <artifactId>simple-xml</artifactId>
+                <version>${simplexml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.moshi</groupId>
+                <artifactId>moshi</artifactId>
+                <version>${moshi.version}</version>
             </dependency>
 
-            <!--Test Dependencies-->
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
                 <version>3.0.2</version>
             </dependency>
+
+            <!--Test Dependencies-->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -172,17 +203,19 @@
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>mockwebserver</artifactId>
-                <version>${okhttp.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.robolectric</groupId>
                 <artifactId>robolectric</artifactId>
                 <version>${robolectric.version}</version>
             </dependency>
+
+            <!--Mock Server-->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>mockwebserver</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -220,6 +253,13 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.9</version>
+                    </dependency>
+                </dependencies>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
