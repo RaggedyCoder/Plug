@@ -1,4 +1,4 @@
-package io.github.raggedycoder.plug.converter.guava;
+package io.github.raggedycoder.plug.guava;
 
 import io.github.raggedycoder.plug.converter.PlugConverter;
 
