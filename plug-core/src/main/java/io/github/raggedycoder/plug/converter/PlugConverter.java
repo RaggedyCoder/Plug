@@ -11,27 +11,25 @@ import java.lang.reflect.Type;
 
 public interface PlugConverter<From, To> {
 
-	To converter(From from) throws ConversionException;
+    To converter(From from) throws ConversionException;
 
-	abstract class Factory {
-		@Nullable
-		public PlugConverter<PlugResponseBody, ?> responseBodyConverter(Type type,
-		                                                                Annotation[] annotations,
-		                                                                Plug plug) {
-			return null;
-		}
+    abstract class Factory {
+        @Nullable
+        public PlugConverter<PlugResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations,
+                                                                        Plug plug) {
+            return null;
+        }
 
-		@Nullable
-		public PlugConverter<?, PlugRequestBody> requestBodyConverter(Type type,
-		                                                              Annotation[] parameterAnnotations,
-		                                                              Annotation[] methodAnnotations,
-		                                                              Plug plug) {
-			return null;
-		}
+        @Nullable
+        public PlugConverter<?, PlugRequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations,
+                                                                      Annotation[] methodAnnotations,
+                                                                      Plug plug) {
+            return null;
+        }
 
-		@Nullable
-		public PlugConverter<?, String> stringConverter(Type type, Annotation[] annotations, Plug plug) {
-			return null;
-		}
-	}
+        @Nullable
+        public PlugConverter<?, String> stringConverter(Type type, Annotation[] annotations, Plug plug) {
+            return null;
+        }
+    }
 }
