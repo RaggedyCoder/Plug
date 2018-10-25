@@ -1,4 +1,6 @@
 package io.github.raggedycoder.plug.converter.wire;
 
-public class WireConverterFactory {
+import io.github.raggedycoder.plug.converter.PlugConverter;
+
+public class WireConverterFactory extends PlugConverter.Factory{
 }

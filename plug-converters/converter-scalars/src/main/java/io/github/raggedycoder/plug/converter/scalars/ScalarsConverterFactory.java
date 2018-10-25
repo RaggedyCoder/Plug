@@ -1,4 +1,6 @@
 package io.github.raggedycoder.plug.converter.scalars;
 
-public class ScalarsConverterFactory {
+import io.github.raggedycoder.plug.converter.PlugConverter;
+
+public class ScalarsConverterFactory extends PlugConverter.Factory {
 }
