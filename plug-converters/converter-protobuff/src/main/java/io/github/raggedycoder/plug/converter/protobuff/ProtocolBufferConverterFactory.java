@@ -1,4 +1,6 @@
 package io.github.raggedycoder.plug.converter.protobuff;
 
-public class ProtocolBufferConverterFactory {
+import io.github.raggedycoder.plug.converter.PlugConverter;
+
+public class ProtocolBufferConverterFactory extends PlugConverter.Factory{
 }
