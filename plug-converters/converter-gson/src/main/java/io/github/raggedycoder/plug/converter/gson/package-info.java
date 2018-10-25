@@ -1,4 +1,4 @@
 @ParametersAreNonnullByDefault
-package io.github.raggedycoder.plug.converter;
+package io.github.raggedycoder.plug.converter.gson;
 
 import javax.annotation.ParametersAreNonnullByDefault;
