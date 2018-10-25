@@ -1,4 +1,4 @@
 @ParametersAreNonnullByDefault
-package io.github.raggedycoder.plug.java8;
+package io.github.raggedycoder.plug.converter.jackson;
 
 import javax.annotation.ParametersAreNonnullByDefault;

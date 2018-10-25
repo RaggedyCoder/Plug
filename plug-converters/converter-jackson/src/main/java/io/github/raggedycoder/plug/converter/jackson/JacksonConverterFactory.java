@@ -1,4 +1,4 @@
-package io.github.raggedycoder.plug.jackson;
+package io.github.raggedycoder.plug.converter.jackson;
 
 import io.github.raggedycoder.plug.converter.PlugConverter;
 
